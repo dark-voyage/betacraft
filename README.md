@@ -2,7 +2,7 @@
   <a href="https://t.me/bsba_group">
     <img src="assets/betacraft.png" width="200" height="200">
   </a>
-  <h1 align="center">BetCraft</h1>
+  <h1 align="center">BetaCraft</h1>
 </p>
 
 **This server was built with [Spigot](https://www.spigotmc.org/) in [Java](https://www.java.com/en/). This server works as plugin modular, so don't worry about adding your own plugins. It will not affect to the server's working process. Just, don't forget to restart server and you're ready to go!
