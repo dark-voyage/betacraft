@@ -1,3 +1,3 @@
 @echo off
-java -Xms1G -Xmx1G -XX:+UseConcMarkSweepGC -jar spigot.jar
+java -Xms4G -Xmx4G -XX:+UseConcMarkSweepGC -jar  spigot.jar nogui
 pause
