@@ -13,3 +13,6 @@ ops.json
 spigot.jar
 usercache.json
 whitelist.json
+
+# Editor files
+.vs
