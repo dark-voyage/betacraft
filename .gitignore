@@ -1,15 +1,15 @@
 # Ignore Buildtools configuration
-# BuildTools
+BuildTools
 
 logs
-# plugins
-# beta_world
-# beta_world_nether
-# beta_world_the_end
+plugins
+beta_world
+beta_world_nether
+beta_world_the_end
 
-# banned-ips.json
-# banned-players.json
-# ops.json
-# spigot.jar
-# usercache.json
-# whitelist.json
+banned-ips.json
+banned-players.json
+ops.json
+spigot.jar
+usercache.json
+whitelist.json
