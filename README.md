@@ -54,7 +54,7 @@ For localhost do the same as I mention below in public one, but for public you n
 5. Copy ip adress and share it.
 
 ## Download Sources
-<a href="https://github.com/sakhib-orzklv/automator/archive/master.zip">Download Latest Update</a>
+<a href="https://github.com/sakhib-orzklv/betacraft/archive/master.zip">Download Latest Update</a>
 
 <a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip">Download ngrok package</a>
 
