@@ -59,55 +59,56 @@ class Files:
         "eula=true"
     server_properties = \
         """spawn-protection=16
-    max-tick-time=60000
-    query.port=25565
-    generator-settings=
-    force-gamemode=false
-    allow-nether=true
-    enforce-whitelist=false
-    gamemode=survival
-    broadcast-console-to-ops=true
-    enable-query=false
-    player-idle-timeout=0
-    difficulty=easy
-    spawn-monsters=true
-    broadcast-rcon-to-ops=true
-    op-permission-level=4
-    pvp=true
-    snooper-enabled=true
-    level-type=default
-    hardcore=false
-    enable-command-block=true
-    max-players=100
-    network-compression-threshold=256
-    resource-pack-sha1=
-    max-world-size=29999984
-    function-permission-level=2
-    rcon.port=25575
-    server-port=25565
-    debug=false
-    server-ip=127.0.0.1
-    spawn-npcs=true
-    allow-flight=true
-    level-name=beta_world
-    view-distance=10
-    resource-pack=
-    spawn-animals=true
-    white-list=false
-    rcon.password=mogulkahn2001
-    generate-structures=true
-    max-build-height=256
-    online-mode=false
-    level-seed=
-    use-native-transport=true
-    prevent-proxy-connections=false
-    motd=\u00A7a\u1360\u00A72 Welcome to\u00A7c BetaCraft \u00A72Server\u00A79       t.me/bsba_group\u00A7r\n\u00A7a\u1360\u00A7e Start playing in our Server\!\!\!
-    enable-rcon=false
-    """
-    server_icon = "assets/server/server-icon.png"
+max-tick-time=60000
+query.port=25565
+generator-settings=
+force-gamemode=false
+allow-nether=true
+enforce-whitelist=false
+gamemode=survival
+broadcast-console-to-ops=true
+enable-query=false
+player-idle-timeout=0
+difficulty=easy
+spawn-monsters=true
+broadcast-rcon-to-ops=true
+op-permission-level=4
+pvp=true
+snooper-enabled=true
+level-type=default
+hardcore=false
+enable-command-block=true
+max-players=100
+network-compression-threshold=256
+resource-pack-sha1=
+max-world-size=29999984
+function-permission-level=2
+rcon.port=25575
+server-port=25565
+debug=false
+server-ip=127.0.0.1
+spawn-npcs=true
+allow-flight=true
+level-name=beta_world
+view-distance=10
+resource-pack=
+spawn-animals=true
+white-list=false
+rcon.password=mogulkahn2001
+generate-structures=true
+max-build-height=256
+online-mode=false
+level-seed=
+use-native-transport=true
+prevent-proxy-connections=false
+motd=\u00A7a\u1360\u00A72 Welcome to\u00A7c BetaCraft \u00A72Server\u00A79       t.me/bsba_group\u00A7r\n\u00A7a\u1360\u00A7e Start playing in our Server\!\!\!
+enable-rcon=false
+"""
+    server_icon = "../assets/server/server-icon.png"
     pass
 
 
+server = 'server'
 directory = Path(__file__).resolve().parent
 builds = 'builds'
 url = "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
@@ -171,8 +172,7 @@ def builder():
     for server_file in glob('spigot-*.*.*.jar'):
         info("Server version: " + server_file + " exists")
         os.rename(server_file, "server.jar")
-        cwd = os.getcwd()
-        src = cwd
+        src = os.getcwd()
         dst = Path(__file__).resolve().parent
         shutil.move(os.path.join(src, "server.jar"), os.path.join(dst, "server.jar"))
         success(messages["moved"])
@@ -188,6 +188,23 @@ def builder():
 
 def init():
     info(messages["init"])
+    os.path.join(directory)
+
+    try:
+        os.mkdir(server)
+        success(messages["directory_created"])
+
+    except FileExistsError:
+        error(messages["directory_exists"])
+        shutil.rmtree(server)
+        os.mkdir(server)
+        success(messages["directory_created"])
+    pass
+    os.chdir(server)
+    dst = os.getcwd()
+    src = Path(__file__).resolve().parent
+    shutil.move(os.path.join(src, "server.jar"), os.path.join(dst, "server.jar"))
+
     with open("eula.txt", "w") as eula:
         eula.write(Files.eula)
         pass

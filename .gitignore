@@ -136,17 +136,5 @@ dmypy.json
 .DS_Store
 
 # Ignore Buildtools configuration
-builds
-
-logs
-plugins
-beta_world
-beta_world_nether
-beta_world_the_end
-
-banned-ips.json
-banned-players.json
-ops.json
-spigot.jar
-usercache.json
-whitelist.json
+builds/
+server/
