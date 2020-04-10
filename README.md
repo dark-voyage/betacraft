@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://t.me/bsba_group">
-    <img src="assets/betacraft.png" width="200" height="200">
+    <img src="assets/repo/betacraft.png" width="200" height="200">
   </a>
   <h1 align="center">BetaCraft</h1>
 </p>
