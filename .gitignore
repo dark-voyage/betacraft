@@ -1,5 +1,5 @@
 # Ignore Buildtools configuration
-BuildTools
+builds
 
 logs
 plugins
@@ -15,4 +15,4 @@ usercache.json
 whitelist.json
 
 # Editor files
-.vs
+.vscode
