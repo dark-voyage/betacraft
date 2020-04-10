@@ -2,11 +2,11 @@ import subprocess
 import wget
 import shutil
 import os
-import files
 
 from glob import glob
 from pathlib import Path
 from termcolor import colored
+
 
 class Files:
     eula = \
