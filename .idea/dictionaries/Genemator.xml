@@ -1,7 +1,13 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Genemator">
     <words>
+      <w>gamemode</w>
       <w>minecraft</w>
+      <w>mogulkahn</w>
+      <w>motd</w>
+      <w>pathlib</w>
+      <w>rcon</w>
+      <w>shutil</w>
     </words>
   </dictionary>
 </component>
