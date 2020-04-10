@@ -12,6 +12,11 @@
     <mapping directory="$PROJECT_DIR$/builder/builds/Spigot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/builder/builds/Spigot/Spigot-API" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/builder/builds/Spigot/Spigot-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/builds/BuildData" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/builds/Bukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/builds/CraftBukkit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/builds/Spigot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/builds/Spigot/Spigot-API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/builds/Spigot/Spigot-Server" vcs="Git" />
   </component>
 </project>

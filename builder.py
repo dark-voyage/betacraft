@@ -1,17 +1,62 @@
 import subprocess
-import wget
+import urllib.request
 import shutil
 import os
-
 from glob import glob
 from pathlib import Path
-from termcolor import colored
+
+
+class Colors:
+    CEND = '\33[0m'
+    CBOLD = '\33[1m'
+    CITALIC = '\33[3m'
+    CURL = '\33[4m'
+    CBLINK = '\33[5m'
+    CBLINK2 = '\33[6m'
+    CSELECTED = '\33[7m'
+    ####################
+    CBLACK = '\33[30m'
+    CRED = '\33[31m'
+    CGREEN = '\33[32m'
+    CYELLOW = '\33[33m'
+    CBLUE = '\33[34m'
+    CVIOLET = '\33[35m'
+    CBEIGE = '\33[36m'
+    CWHITE = '\33[37m'
+    ####################
+    CBLACKBG = '\33[40m'
+    CREDBG = '\33[41m'
+    CGREENBG = '\33[42m'
+    CYELLOWBG = '\33[43m'
+    CBLUEBG = '\33[44m'
+    CVIOLETBG = '\33[45m'
+    CBEIGEBG = '\33[46m'
+    CWHITEBG = '\33[47m'
+
+    CGREY = '\33[90m'
+    CRED2 = '\33[91m'
+    CGREEN2 = '\33[92m'
+    CYELLOW2 = '\33[93m'
+    CBLUE2 = '\33[94m'
+    CVIOLET2 = '\33[95m'
+    CBEIGE2 = '\33[96m'
+    CWHITE2 = '\33[97m'
+    ####################
+    CGREYBG = '\33[100m'
+    CREDBG2 = '\33[101m'
+    CGREENBG2 = '\33[102m'
+    CYELLOWBG2 = '\33[103m'
+    CBLUEBG2 = '\33[104m'
+    CVIOLETBG2 = '\33[105m'
+    CBEIGEBG2 = '\33[106m'
+    CWHITEBG2 = '\33[107m'
+
+    pass
 
 
 class Files:
     eula = \
         "eula=true"
-
     server_properties = \
         """spawn-protection=16
     max-tick-time=60000
@@ -59,13 +104,12 @@ class Files:
     motd=\u00A7a\u1360\u00A72 Welcome to\u00A7c BetaCraft \u00A72Server\u00A79       t.me/bsba_group\u00A7r\n\u00A7a\u1360\u00A7e Start playing in our Server\!\!\!
     enable-rcon=false
     """
-
     server_icon = "assets/server/server-icon.png"
     pass
 
 
 directory = Path(__file__).resolve().parent
-dirname = 'builds'
+builds = 'builds'
 url = "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
 version = "latest"  # input("Which version of Minecraft Server you would like to install: ")
 messages = {
@@ -74,8 +118,8 @@ messages = {
     "building": "Building stage is being started. Please, be patient!",
     "finishing": "Finishing building process.",
     "error": "Some error occurred!",
-    "directory_created": f"The directory {dirname} is created",
-    "directory_exists": f"The directory {dirname} already exists, re-creating it!",
+    "directory_created": f"The directory {builds} is created",
+    "directory_exists": f"The directory {builds} already exists, re-creating it!",
     "moved": "Server file has been successfully moved to parent directory!",
     "cleanup": "Cleaning up all used files and trashes!",
     "init": "Initializing the server with startup files...",
@@ -90,17 +134,17 @@ builder_arguments = [
 
 
 def error(text):
-    print(colored(text, 'red', attrs=['bold']))
+    print(Colors.CRED + Colors.CBOLD + text + Colors.CEND)
     pass
 
 
 def info(text):
-    print(colored(text, 'cyan', attrs=['bold']))
+    print(Colors.CBLUE2 + Colors.CBOLD + text + Colors.CEND)
     pass
 
 
 def success(text):
-    print(colored(text, 'green', attrs=['bold']))
+    print(Colors.CGREEN + Colors.CBOLD + text + Colors.CEND)
     pass
 
 
@@ -108,30 +152,34 @@ def builder():
     os.path.join(directory)
 
     try:
-        os.mkdir(dirname)
+        os.mkdir(builds)
         success(messages["directory_created"])
 
     except FileExistsError:
         error(messages["directory_exists"])
-        shutil.rmtree(dirname)
-        os.mkdir(dirname)
+        shutil.rmtree(builds)
+        os.mkdir(builds)
         success(messages["directory_created"])
 
-    os.chdir(dirname)
+    os.chdir(builds)
     info(messages["downloading"])
-    wget.download(url)
+    urllib.request.urlretrieve(url, 'BuildTools.jar')
 
     info(messages["building"])
     subprocess.call(builder_arguments)
 
     for server_file in glob('spigot-*.*.*.jar'):
         info("Server version: " + server_file + " exists")
-        os.rename(server_file, "builder/server.jar")
-        shutil.move("builder/server.jar", Path(__file__).resolve().parent)
+        os.rename(server_file, "server.jar")
+        cwd = os.getcwd()
+        src = cwd
+        dst = Path(__file__).resolve().parent
+        shutil.move(os.path.join(src, "server.jar"), os.path.join(dst, "server.jar"))
         success(messages["moved"])
     pass
 
-    shutil.rmtree(dirname)
+    os.chdir("..")
+    shutil.rmtree(builds)
     info(messages["cleanup"])
 
     success(messages["finishing"])
