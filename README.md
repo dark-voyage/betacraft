@@ -17,7 +17,7 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 4. Enter the folder
 5. Run `build.bat` file
 6. Wait until it finishes
-7. Run `start.bat` file after build completion
+7. Run `start.vbs` file after build completion
 8. Open minecraft
 9. Add new server with `localhost:25565` credential
 10. Voila! You're ready to go!
