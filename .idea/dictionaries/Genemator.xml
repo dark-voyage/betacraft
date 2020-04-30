@@ -8,6 +8,7 @@
       <w>pathlib</w>
       <w>rcon</w>
       <w>shutil</w>
+      <w>wscript</w>
     </words>
   </dictionary>
 </component>

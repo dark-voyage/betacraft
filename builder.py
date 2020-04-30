@@ -4,6 +4,8 @@ import stat
 import subprocess
 import sys
 import urllib.request
+
+
 from glob import glob
 from pathlib import Path
 
@@ -134,30 +136,6 @@ def on_rm_error(path):
     os.unlink(path)
 
 
-def cleanup(status=None):
-    os.path.join(directory)
-    clean_builds = input(info("Would you like to clean builds? [y|n]: "))
-    while status == 1:
-        if clean_builds == 'y':
-            info("Deleting builds directory!")
-            shutil.rmtree(builds)
-            if os.path.exists('builds'):
-                shutil.rmtree(builds, onerror=on_rm_error)
-                pass
-            else:
-                error("What a mess, there were no builds!")
-            return status == 1
-            pass
-        elif clean_builds == 'n':
-            error("Ignoring builds")
-            return status == 1
-            pass
-        else:
-            error("Invalid option!")
-            return status == 0
-    pass
-
-
 def quit_builder():
     sys.stderr.write("[SUCCESS] " + "Beta Builder is exiting!")
     sys.exit(1)
@@ -166,6 +144,5 @@ def quit_builder():
 if __name__ == '__main__':
     builder()
     init()
-    cleanup()
     quit_builder()
     pass
