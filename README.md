@@ -11,6 +11,8 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 ## Deploy Your Own
 **To deploy your own server with my instances follow the steps provided below:**
 
+# ON WINDOWS:
+
 1. Download my source codes from [there](#download-sources).
 2. Unzip my master source code.
 3. Save the folder somewhere you can remember
@@ -22,13 +24,26 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 9. Add new server with `localhost:25565` credential
 10. Voila! You're ready to go!
 
+# ON LINUX:
+
+1. Download my source codes from [there](#download-sources).
+2. Unzip my master source code.
+3. Save the folder somewhere you can remember
+4. Enter the folder
+5. Run `build.sh` file
+6. Wait until it finishes
+7. Run `start.sh` file after build completion
+8. Open minecraft
+9. Add new server with `localhost:25565` credential
+10. Voila! You're ready to go!
+
 ## Sharing server between localhost or public
 
 #### If you live in country where every citizen have public ip adress do the following:
 
 For localhost:
 1. Open CMD or Powershell
-2. Type ipconfig
+2. Type ipconfig (for WIN) or ifconfig (for Linux[Ubuntu])
 3. Find your IPv4 adress connecting you to your router
 4. Share your adress in this form: <ip>:25565
 `Example: 192.168.1.2:25565 or 10.10.0.2:25565`
@@ -56,7 +71,11 @@ For localhost do the same as I mention below in public one, but for public you n
 ## Download Sources
 <a href="https://github.com/sakhib-orzklv/betacraft/archive/master.zip">Download Latest Update</a>
 
-<a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip">Download ngrok package</a>
+<a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip">Download ngrok package (Win x64)</a>
+
+<a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip">Download ngrok package (Linux x64)</a>
+
+
 
 ## Documentations
 * **Spigot** - [Wiki](https://www.spigotmc.org/wiki/spigot/)
