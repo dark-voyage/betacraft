@@ -43,7 +43,7 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 
 For localhost:
 1. Open CMD or Powershell
-2. Type ipconfig
+2. Type ipconfig (for WIN) or ifconfig (for Linux[Ubuntu])
 3. Find your IPv4 adress connecting you to your router
 4. Share your adress in this form: <ip>:25565
 `Example: 192.168.1.2:25565 or 10.10.0.2:25565`
@@ -71,7 +71,11 @@ For localhost do the same as I mention below in public one, but for public you n
 ## Download Sources
 <a href="https://github.com/sakhib-orzklv/betacraft/archive/master.zip">Download Latest Update</a>
 
-<a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip">Download ngrok package</a>
+<a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip">Download ngrok package (Win x64)</a>
+
+<a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip">Download ngrok package (Linux x64)</a>
+
+
 
 ## Documentations
 * **Spigot** - [Wiki](https://www.spigotmc.org/wiki/spigot/)
