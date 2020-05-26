@@ -11,6 +11,8 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 ## Deploy Your Own
 **To deploy your own server with my instances follow the steps provided below:**
 
+# ON WINDOWS:
+
 1. Download my source codes from [there](#download-sources).
 2. Unzip my master source code.
 3. Save the folder somewhere you can remember
@@ -18,6 +20,19 @@ If you want to create your own server with my codes, just head to the [Deploy yo
 5. Run `build.bat` file
 6. Wait until it finishes
 7. Run `start.vbs` file after build completion
+8. Open minecraft
+9. Add new server with `localhost:25565` credential
+10. Voila! You're ready to go!
+
+# ON LINUX:
+
+1. Download my source codes from [there](#download-sources).
+2. Unzip my master source code.
+3. Save the folder somewhere you can remember
+4. Enter the folder
+5. Run `build.sh` file
+6. Wait until it finishes
+7. Run `start.sh` file after build completion
 8. Open minecraft
 9. Add new server with `localhost:25565` credential
 10. Voila! You're ready to go!
