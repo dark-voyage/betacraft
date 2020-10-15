@@ -77,7 +77,7 @@ def builder():
     info(messages["downloading"])
     try:
         urllib.request.urlretrieve(url, builder_file)
-    except FileExistsError as err:
+    except FileExistsError:
         os.remove(builder_file)
         urllib.request.urlretrieve(url, builder_file)
         pass
@@ -89,13 +89,13 @@ def builder():
         info("Server version: " + server_file + " exists")
         try:
             os.rename(server_file, "server.jar")
-        except FileExistsError as err:
+        except FileExistsError:
             os.remove("server.jar")
             os.rename(server_file, "server.jar")
         success(messages["renamed"])
     pass
 
-    os.chdir("..")
+    os.chdir("../..")
     print(directory)
     success(messages["finishing"])
     pass
@@ -124,9 +124,9 @@ def init():
         eula.write(Files.eula)
         pass
 
-    shutil.copy(Files.server_properties, ".")
+    shutil.copy(Files.server_properties, "..")
 
-    shutil.copy(Files.server_icon, ".")
+    shutil.copy(Files.server_icon, "..")
     pass
     success(messages["end"])
 
